@@ -38,6 +38,7 @@ def main():
 
     if choice == "Home":
         st.subheader("Home")
+        st.image("resources/fundamentals_info.png")
     elif choice == "AppTemplate":
         st.title(f"Fundamentals - {choice}")
         template()

@@ -11,15 +11,16 @@ def main():
     choice = st.sidebar.selectbox("SubMenu", menu, key=f"{PRFX}_cases")
 
     if choice == "Home":
-        st.title("Plots") 
+        st.title("Plots")
+        st.image("resources/plots_info.png")
     elif choice == "Altair":
-        st.title(f"Plots - {choice}") 
+        st.title(f"Plots - {choice}")
         altair()
     elif choice == "Plotly":
-        st.title(f"Plots - {choice}") 
+        st.title(f"Plots - {choice}")
         plotly()
     elif choice == "StPyPlot":
-        st.title(f"Plots - {choice}") 
+        st.title(f"Plots - {choice}")
         stpyplot()
     else:
         pass
