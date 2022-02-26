@@ -1,11 +1,6 @@
-# Core Pkgs
 import streamlit as st
-
-# Load EDA Pkgs
 import pandas as pd
 import numpy as np
-
-# Load Data Viz Pkgs
 import matplotlib.pyplot as plt
 import matplotlib
 
@@ -16,7 +11,7 @@ import seaborn as sns
 def main():
     col1, col2 = st.columns([5, 5])
     with col1:
-        st.title("Plotting with St.Pyplot")
+        st.title("Result")
         df = pd.read_csv("data/iris.csv")
         st.dataframe(df.head())
 
@@ -51,7 +46,16 @@ def main():
         st.pyplot(fig)
     with col2:
         st.title("Code")
-        code = """st.title("Plotting with St.Pyplot")
+        code = """import streamlit as st
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use("Agg")  # TkAgg
+import seaborn as sns
+
+        
+st.title("Result")
 df = pd.read_csv("data/iris.csv")
 st.dataframe(df.head())
 

@@ -1,18 +1,13 @@
-# Core Pkgs
 import streamlit as st
-
-# Load EDA Pkgs
 import pandas as pd
 import numpy as np
-
-# Import Altair
 import altair as alt
 
 
 def main():
     col1, col2 = st.columns([5, 5])
     with col1:
-        st.title("Plotting In Streamlit")
+        st.title("Result")
 
         # Load Dataset
         df = pd.read_csv("data/lang_data.csv")
@@ -46,8 +41,12 @@ def main():
 
     with col2:
         st.title("Code")
-        code = """
-st.title("Plotting In Streamlit")
+        code = """import streamlit as st
+import pandas as pd
+import numpy as np
+import altair as alt
+
+st.title("Result")
 
 # Load Dataset
 # df = pd.read_csv("data/iris.csv")
