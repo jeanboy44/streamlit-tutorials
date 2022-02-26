@@ -64,6 +64,7 @@ def main():
             # text_downloader(my_text)
             download = FileDownLoader(my_text).download()
     elif choice == "CSV":
+        st.subheader("Download CSV")
         df = pd.read_csv("data/iris.csv")
         st.dataframe(df)
         # csv_downloader(df)

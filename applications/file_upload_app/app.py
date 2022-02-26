@@ -47,11 +47,6 @@ def save_uploaded_file(file):
 
 
 def main():
-    st.title("File Upload Tutorial")
-
-    with st.expander("App Explanation"):
-        st.image("resources/fileupload_tuts_streamlit_jcharistech02.png")
-
     menu = ["Home", "Dataset", "DocumentFiles", "About"]
     choice = st.sidebar.selectbox("Menu", menu)
 
@@ -122,6 +117,7 @@ def main():
 
     else:
         st.subheader("About")
+        st.image("resources/fileupload_tuts_streamlit_jcharistech02.png")
 
 
 if __name__ == "__main__":
