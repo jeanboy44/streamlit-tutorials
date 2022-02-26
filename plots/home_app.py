@@ -8,7 +8,7 @@ from .stpyplot_app import main as stpyplot
 
 def main():
     menu = ["Home", "Altair", "Plotly", "StPyPlot"]
-    choice = st.sidebar.selectbox("Examples", menu, key=f"{PRFX}_cases")
+    choice = st.sidebar.selectbox("SubMenu", menu, key=f"{PRFX}_cases")
 
     if choice == "Home":
         st.title("Plots")

@@ -19,6 +19,7 @@ st.set_page_config(**PAGE_CONFIG)
 
 
 def main():
+    st.sidebar.markdown("# Navigator")
     menu = ["Home", "Fundamentals", "Plots", "Applications"]
     choice = st.sidebar.selectbox("Menu", menu)
 

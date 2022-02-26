@@ -1,13 +1,11 @@
 # Core Pkgs
 import streamlit as st
-from home_page import run_home_page
-from post_page import run_task_page
-from manage_page import run_manage_page
+from .home_page import run_home_page
+from .post_page import run_task_page
+from .manage_page import run_manage_page
 
 
 def main():
-    st.title("Simple CRUD App(TaskList)")
-
     menu = ["Home", "Tasks", "Manage", "About"]
     choice = st.sidebar.selectbox("Menu", menu)
 

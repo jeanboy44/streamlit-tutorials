@@ -1,10 +1,11 @@
 import streamlit as st
 import pandas as pd
-from db_fxns import *
+from .db_fxns import *
 
 
 def run_home_page():
     st.subheader("Home")
+    create_table()
 
     choice = st.sidebar.selectbox("SubMenu", ["My Tasks", "Search"])
 
@@ -26,15 +27,15 @@ def run_home_page():
         with c2:
             st.info("Details")
             task_result = get_task_by_task_name(selected_task)
-            # st.write(task_result)
-            task_doer = task_result[0][0]
-            task_name = task_result[0][1]
-            task_status = task_result[0][2]
-            task_due_date = task_result[0][3]
-            st.write("Task Doer:{}".format(task_doer))
-            st.text("Task:{}".format(task_name))
-            st.text("Task Status:{}".format(task_status))
-            st.write("Task Due Date:{}".format(task_due_date))
+            if len(task_result) !=0:
+                task_doer = task_result[0][0]
+                task_name = task_result[0][1]
+                task_status = task_result[0][2]
+                task_due_date = task_result[0][3]
+                st.write("Task Doer:{}".format(task_doer))
+                st.text("Task:{}".format(task_name))
+                st.text("Task Status:{}".format(task_status))
+                st.write("Task Due Date:{}".format(task_due_date))
 
     else:
         st.subheader("Search Task")

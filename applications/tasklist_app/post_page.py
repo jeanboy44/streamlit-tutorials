@@ -1,6 +1,6 @@
 # Create and Edit/Update
 import streamlit as st
-from db_fxns import (
+from .db_fxns import (
     create_table,
     add_data,
     view_all_tasks,

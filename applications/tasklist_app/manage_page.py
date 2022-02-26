@@ -1,11 +1,7 @@
 import streamlit as st
-from db_fxns import (
-    create_table,
-    add_data,
+from .db_fxns import (
     view_all_tasks,
     view_all_task_names,
-    get_task_by_task_name,
-    edit_task_data,
     delete_data,
 )
 
