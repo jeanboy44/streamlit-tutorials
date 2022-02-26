@@ -4,7 +4,7 @@ import streamlit as st
 def main():
     col1, col2 = st.columns(2)
     with col1:
-        st.title("Text Inputs")
+        st.title("Result")
         # Text Input
         fname = st.text_input("Enter Firstname")
         # Text Input Hide Password
@@ -28,7 +28,10 @@ def main():
         color = st.color_picker("Select Color")
     with col2:
         st.title("Code")
-        code = """# Text Input
+        code = """import streamlit as st
+
+st.title("Result")
+# Text Input
 fname = st.text_input("Enter Firstname")
 # Text Input Hide Password
 password = st.text_input("Enter Password", type="password")

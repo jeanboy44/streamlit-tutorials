@@ -50,7 +50,7 @@ def main():
     st.title("File Upload Tutorial")
 
     with st.expander("App Explanation"):
-        st.image("data/fileupload_tuts_streamlit_jcharistech02.png")
+        st.image("resources/fileupload_tuts_streamlit_jcharistech02.png")
 
     menu = ["Home", "Dataset", "DocumentFiles", "About"]
     choice = st.sidebar.selectbox("Menu", menu)
