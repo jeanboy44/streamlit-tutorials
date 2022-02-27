@@ -8,6 +8,7 @@ from .layouts_app import main as layouts
 from .media_files_app import main as media_files
 from .progress_display_app import main as progress_display
 from .select_widget_app import main as select_widget
+from .session_state_app import main as session_state
 from .sidebar_app import main as sidebar
 from .table_display_app import main as table_display
 from .text_display_app import main as text_display
@@ -28,6 +29,7 @@ def main():
         "MediaFiles",
         "ProgressDisplay",
         "SelectWidget",
+        "SessionState",
         "SideBar",
         "TableDiaplay",
         "TextDisplay",
@@ -63,6 +65,9 @@ def main():
     elif choice == "SelectWidget":
         st.title(f"Fundamentals - {choice}")
         select_widget()
+    elif choice == "SessionState":
+        st.title(f"Fundamentals - {choice}")
+        session_state()
     elif choice == "SideBar":
         st.title(f"Fundamentals - {choice}")
         sidebar()
