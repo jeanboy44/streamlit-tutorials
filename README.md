@@ -14,13 +14,14 @@ pipreqs tasklist_app/
 - [ENTRYPOINT와 CMD](https://bluese05.tistory.com/77)
 - Dockerfile
     ```{Dockerfile}
-    FROM python:3.8
+    FROM winamd64/python:3.8
 
     # Working Directory in container
     WORKDIR /app
 
     # install python requirements
     COPY requirements.txt ./requirements.txt
+    RUN pip3 install --upgrade pip 
     RUN pip3 install -r requirements.txt
 
     # port number to expose
@@ -31,11 +32,11 @@ pipreqs tasklist_app/
 
     # codes that runs when container starts
     ENTRYPOINT ["streamlit", "run"]
-    CMD ["app.py"]
+    CMD ["app.py","--server.headless=true", "--global.developmentMode=false"]
     ```
 ## 2. Build docker image
 ```
-docker build -t streamlittut:latest -f Dockerfile .
+docker build -t streamlittutorials:latest -f Dockerfile .
 ```
 ## 3. Check built image
 ```
@@ -45,5 +46,5 @@ docker images
 ## 4. Run container
  - 8503:8501 = \<host port number\>:\<container port number\>}
 ```
-docker run -p 8501:8501 streamlittut:latest
+docker run -p 8501:8501 -d --restart always streamlittutorials:latest
 ```
