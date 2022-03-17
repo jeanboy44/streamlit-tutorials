@@ -1,4 +1,5 @@
 FROM python:3.8
+# FROM winamd64/python:3.8 # for Windows container
 
 # Working Directory in container
 WORKDIR /app
