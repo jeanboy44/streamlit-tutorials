@@ -1,15 +1,16 @@
+# Import libraries
 import streamlit as st
+from PIL import Image
 
+# Import modules for other streamlit apps
 from home_app import main as home
 from fundamentals.home_app import main as fundamentals_home
 from applications.home_app import main as applications_home
 from plots.home_app import main as plots_home
 
-from PIL import Image
 
+# Set config
 logo_img = Image.open("resources/streamlit-mark-color.png")
-
-# Method 2:Dictionary
 PAGE_CONFIG = {
     "page_title": "Streamlit Tutorials",
     "page_icon": logo_img,

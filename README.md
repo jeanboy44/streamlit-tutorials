@@ -36,7 +36,7 @@ pipreqs tasklist_app/
     ```
 ## 2. Build docker image
 ```
-docker build -t streamlittutorials:latest -f Dockerfile .
+docker build -t streamlittutorials:latest -f Dockerfile_ubuntu .
 ```
 ## 3. Check built image
 ```
@@ -46,5 +46,5 @@ docker images
 ## 4. Run container
  - 8503:8501 = \<host port number\>:\<container port number\>}
 ```
-docker run -p 8501:8501 -d --restart always streamlittutorials:latest
+docker run -p 8502:8501 -d --restart always streamlittutorials:latest
 ```
