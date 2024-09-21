@@ -1,5 +1,4 @@
 from pathlib import Path
-from pydoc import doc
 import streamlit as st
 
 # File Processing Pkgs
@@ -8,10 +7,10 @@ import pandas as pd
 import docx2txt
 
 from PyPDF2 import PdfFileReader
-import pdfplumber
+
 
 # Load Images
-@st.cache
+@st.cache_data
 def load_image(image_file):
     img = Image.open(image_file)
     return img

@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.12
 # FROM winamd64/python:3.8 # for Windows container
 
 # Working Directory in container

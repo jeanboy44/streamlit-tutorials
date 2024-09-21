@@ -1,50 +1,58 @@
 # streamlit-tutorials
+Streamlit의 기본 사용법을 예제와 함께 제공합니다. 이 레포지토리의 일부 예제는 아래의 강의에서 제공된 내용을 바탕으로 제작되었습니다.
+https://www.udemy.com/course/learn-streamlit-python/?couponCode=OF83024D
 
-## Deploy streamlit application to docker container
-![DockerFile](Explanation_For_Deployment_Types/dockerfileexplain.png)
-## 0. Prepare requirements.txt
-```{sh}
-python -m pip install pipreqs
-pipreqs tasklist_app/ 
-```
+## 설치 환경
+python version: 3.12
 
-## 1. Create Dockerfile
-- create Dockerfile folder in project directory
-- choose image from dockerhub https://hub.docker.com/_/python
-- [ENTRYPOINT와 CMD](https://bluese05.tistory.com/77)
-- Dockerfile
-    ```{Dockerfile}
-    FROM winamd64/python:3.8
-
-    # Working Directory in container
-    WORKDIR /app
-
-    # install python requirements
-    COPY requirements.txt ./requirements.txt
-    RUN pip3 install --upgrade pip 
-    RUN pip3 install -r requirements.txt
-
-    # port number to expose
-    EXPOSE 8501
-
-    # copy files in project folder to /app folder
-    COPY . /app
-
-    # codes that runs when container starts
-    ENTRYPOINT ["streamlit", "run"]
-    CMD ["app.py","--server.headless=true", "--global.developmentMode=false"]
+## 설치 방법
+1. uv 설치: https://github.com/astral-sh/uv 참고
+1. python 3.12.3 설치
     ```
-## 2. Build docker image
+    uv python install 3.12.3
+    ```
+1. 가상 환경 생성
+    ```
+    uv venv --python 3.12.3
+    ```
+1. 가상 환경 실행
+    ```
+    source .venv/bin/activate
+    ```
+1. 필수 패키지 설치
+    ```
+    uv pip install -r requirements.txt
+    ```
+
+## 실행 방법 1. 로컬 환경
+#### 예시 어플리케이션
 ```
-docker build -t streamlittutorials:latest -f Dockerfile_ubuntu .
-```
-## 3. Check built image
-```
-docker images
+(.venv) streamlit run simple_app.py
 ```
 
-## 4. Run container
- - 8503:8501 = \<host port number\>:\<container port number\>}
+#### 메인 어플리케이션
 ```
-docker run -p 8502:8501 -d --restart always streamlittutorials:latest
+(.venv) streamlit run app.py
 ```
+
+## 실행 방법 2. Docker 활용
+이 방법으로 실행할 경우, 위에 설명된 python 환경 설정은 필요하지 않으며, Docker가 설치되어 있어야 합니다.
+
+1. 도커 이미지 빌드
+    ```
+    docker build -t streamlittutorials:latest -f Dockerfile .
+    ```
+
+1. 빌드된 이미지 확인
+    ```
+    docker images
+    ```
+
+1. 컨테이너 실행
+    - 8502:8501 = \<host port number\>:\<container port number\>
+    ```
+    docker run -p 8502:8501 -d --restart always streamlittutorials:latest
+    ```
+
+1. 서비스 접속
+    - https://localhost:8502/
